@@ -15,6 +15,7 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
+	
 	public List<UserDTO> listAll(){
 		List<UserEntity> users = userRepository.findAll();
 		return users.stream().map(UserDTO::new).toList();
