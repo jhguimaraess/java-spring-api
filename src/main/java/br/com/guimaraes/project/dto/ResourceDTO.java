@@ -1,69 +1,48 @@
-package br.com.guimaraes.project.entity;
+package br.com.guimaraes.project.dto;
 
 import java.util.Objects;
 
 import org.springframework.beans.BeanUtils;
 
-import br.com.guimaraes.project.dto.ResourceDTO;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import br.com.guimaraes.project.entity.ResourceEntity;
 
-@Entity
-@Table(name = "CMR_RESOURCE")
-public class ResourceEntity {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ResourceDTO {
+	
 	private Long id;
-	
-	@Column(nullable = false)
 	private String name;
-	
-	@Column(nullable = false)
 	private String key;
 	
-	public ResourceEntity() {
+	public ResourceDTO(){
 		
 	}
 	
-	public ResourceEntity(ResourceDTO resource) {
+	public ResourceDTO(ResourceEntity resource) {
 		BeanUtils.copyProperties(resource, this);
 	}
-
+	
 	
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getKey() {
 		return key;
 	}
-
 	public void setKey(String key) {
 		this.key = key;
 	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -72,11 +51,10 @@ public class ResourceEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ResourceEntity other = (ResourceEntity) obj;
+		ResourceDTO other = (ResourceDTO) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
+
 	
 	
 }
