@@ -3,11 +3,13 @@ package br.com.guimaraes.project.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.guimaraes.project.dto.ResourceDTO;
 import br.com.guimaraes.project.entity.ResourceEntity;
 import br.com.guimaraes.project.repository.ResourceRepository;
 
+@Service
 public class ResourceService {
 	
 	@Autowired
