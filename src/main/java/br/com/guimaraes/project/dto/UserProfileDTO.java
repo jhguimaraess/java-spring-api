@@ -16,7 +16,7 @@ public class UserProfileDTO {
 	private UserDTO user;
 	private PerfilDTO profile;
 	
-	private void UserProfileDTO(UserProfileEntity userProfile) {
+	public UserProfileDTO(UserProfileEntity userProfile) {
 		BeanUtils.copyProperties(userProfile, this);
 		if(userProfile != null && userProfile.getUser() != null) {
 			this.user = new UserDTO(userProfile.getUser());
