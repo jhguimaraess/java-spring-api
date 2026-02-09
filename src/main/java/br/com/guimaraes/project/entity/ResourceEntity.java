@@ -13,7 +13,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "CMR_RESOURCE")
+@Table(name = "GMR_RESOURCE")
 public class ResourceEntity {
 
 	@Id
