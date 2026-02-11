@@ -1,11 +1,6 @@
 package br.com.guimaraes.project.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
 public class AcessDTO {
 
 	private String token;
@@ -16,5 +11,15 @@ public class AcessDTO {
 		super();
 		this.token = token;
 	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+	
+	
 	
 }

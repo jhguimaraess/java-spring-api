@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import br.com.guimaraes.project.entity.UserEntity;
 import br.com.guimaraes.project.repository.UserRepository;
 
 @Service
@@ -16,8 +17,8 @@ public class UserDetailServiceImpl implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		UserEntity userEntity = userRepository.findByLogin(username).get();
+		return UserDetailsImpl.build(userEntity);
 	}
 
 }

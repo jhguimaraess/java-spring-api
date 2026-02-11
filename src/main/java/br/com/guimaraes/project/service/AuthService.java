@@ -40,6 +40,7 @@ public class AuthService {
 		}catch(BadCredentialsException e) {
 			//TODO login ou senha invalida
 		}
+		return new AcessDTO("Acesso Negado");
 	}
 	
 }

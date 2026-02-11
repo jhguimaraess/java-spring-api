@@ -8,6 +8,6 @@ import br.com.guimaraes.project.entity.UserEntity;
 
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
 	
-	Optional<UserEntity> findByLogiOptional(String login);
+	Optional<UserEntity> findByLogin(String login);
 
 }
