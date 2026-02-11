@@ -22,18 +22,19 @@ public class UserDetailsImpl implements UserDetails{
 	private String password;
 	
 	
-	public UserDetailsImpl(Long id, String name, String username, String email,
+	public UserDetailsImpl(Long id, String name, String username, String password, String email,
 			Collection<? extends GrantedAuthority> authorities) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.username = username;
+		this.password = password;
 		this.email = email;
 		this.authorities = authorities;
 	}
 
 	public static UserDetailsImpl build(UserEntity user) {
-		return new UserDetailsImpl(user.getId(), user.getName(), user.getLogin(), user.getEmail(), new ArrayList<>());
+		return new UserDetailsImpl(user.getId(), user.getName(), user.getLogin(), user.getPassword(), user.getEmail(), new ArrayList<>());
 	}
 	
 	private Collection<? extends GrantedAuthority> authorities;
