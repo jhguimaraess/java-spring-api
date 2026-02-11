@@ -12,8 +12,10 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import br.com.guimaraes.project.security.jwt.AuthEntryPointJwt;
+import br.com.guimaraes.project.security.jwt.authFilterToken;
 
 @Configuration
 @EnableMethodSecurity
@@ -33,6 +35,11 @@ public class WebSecurityConfig {
 	}
 	
 	@Bean
+	public authFilterToken authFilterToken() {
+		return new authFilterToken();
+	}
+	
+	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
 		http.cors(Customizer.withDefaults());
 		http.csrf(csrf -> csrf.disable())
@@ -41,6 +48,8 @@ public class WebSecurityConfig {
 			.authorizeHttpRequests(auth -> auth.requestMatchers("/auth/**").permitAll()
 					.requestMatchers("/user/**").permitAll()
 					.anyRequest().authenticated());
+		
+		http.addFilterBefore(authFilterToken(), UsernamePasswordAuthenticationFilter.class);
 		
 		return http.build();
 	}
