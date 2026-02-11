@@ -7,6 +7,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import br.com.guimaraes.project.dto.AcessDTO;
 import br.com.guimaraes.project.dto.AuthenticationDTO;
 import br.com.guimaraes.project.security.jwt.JwtUtils;
 
@@ -33,6 +34,9 @@ public class AuthService {
 			
 			String token = jwtUtils.generateTokenFromUserDetailsImpl(userAuthenticate);
 			
+			AcessDTO acessDto = new AcessDTO(token);
+			
+			return acessDto;
 		}catch(BadCredentialsException e) {
 			//TODO login ou senha invalida
 		}

@@ -14,6 +14,8 @@ import br.com.guimaraes.project.dto.AuthenticationDTO;
 public class AuthController {
 	
 	@PostMapping(value = "/login")
-	public ResponseEntity<?> login(@RequestBody AuthenticationDTO authDto)
+	public ResponseEntity<?> login(@RequestBody AuthenticationDTO authDto){
+		
+	}
 
 }
